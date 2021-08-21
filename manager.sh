@@ -15,7 +15,7 @@ fi
 
 # default session protection
 
-if [ $SESSION_NAME == "default" ] && [ ! $COMMAND == "switch" ]; then
+if [ "$SESSION_NAME" == "default" ] && [ ! "$COMMAND" == "switch" ]; then
     echo "You can use default session only with switch command"
     exit
 fi
