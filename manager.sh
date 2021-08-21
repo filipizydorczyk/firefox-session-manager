@@ -34,6 +34,11 @@ add)
     ;;
 switch)
     CURRENT_SESSION=$(cat "$MOZILLA_DIRECTORY/$NAME_FILE")
+    if [ ! -d "$STORAGE_DIRECTORY/$SESSION_NAME" ]; then
+        echo "Given session could not be find!"
+        exit
+    fi
+
     mv "$MOZILLA_DIRECTORY" "$STORAGE_DIRECTORY/$CURRENT_SESSION"
     mv "$STORAGE_DIRECTORY/$SESSION_NAME" "$MOZILLA_DIRECTORY"
     ;;
