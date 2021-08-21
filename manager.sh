@@ -23,7 +23,9 @@ add)
     echo "New empty session added"
     ;;
 switch)
-    echo "See you again 2!"
+    CURRENT_SESSION=$(cat "$MOZILLA_DIRECTORY/$NAME_FILE")
+    mv "$MOZILLA_DIRECTORY" "$STORAGE_DIRECTORY/$CURRENT_SESSION"
+    mv "$STORAGE_DIRECTORY/$SESSION_NAME" "$MOZILLA_DIRECTORY"
     ;;
 rm)
     rm -rf "$STORAGE_DIRECTORY/$SESSION_NAME"
