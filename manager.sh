@@ -1,12 +1,16 @@
 #!/bin/bash
 
 STORAGE_DIRECTORY="$HOME/.figer-sessions"
+MOZILLA_DIRECTORY="$HOME/.mozilla"
 NAME_FILE=".figer-session-name"
 
 COMMAND="$1"
 SESSION_NAME="$2"
 
 mkdir -p "$STORAGE_DIRECTORY"
+if [ ! -f "$MOZILLA_DIRECTORY/$NAME_FILE" ]; then
+    echo "default" >>"$MOZILLA_DIRECTORY/$NAME_FILE"
+fi
 
 case $COMMAND in
 list)
