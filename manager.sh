@@ -7,10 +7,20 @@ NAME_FILE=".figer-session-name"
 COMMAND="$1"
 SESSION_NAME="$2"
 
+# init
 mkdir -p "$STORAGE_DIRECTORY"
 if [ ! -f "$MOZILLA_DIRECTORY/$NAME_FILE" ]; then
     echo "default" >>"$MOZILLA_DIRECTORY/$NAME_FILE"
 fi
+
+# default session protection
+
+if [ $SESSION_NAME == "default" ] && [ ! $COMMAND == "switch" ]; then
+    echo "You can use default session only with switch command"
+    exit
+fi
+
+# main
 
 case $COMMAND in
 list)
