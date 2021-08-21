@@ -28,7 +28,10 @@ switch)
     mv "$STORAGE_DIRECTORY/$SESSION_NAME" "$MOZILLA_DIRECTORY"
     ;;
 rm)
-    rm -rf "$STORAGE_DIRECTORY/$SESSION_NAME"
+    SESSION_TO_REMOVE="$STORAGE_DIRECTORY/$SESSION_NAME"
+    if [ ! -f "$SESSION_TO_REMOVE" ]; then
+        rm -rf "$SESSION_TO_REMOVE"
+    fi
     echo "Session removed"
     ;;
 *)
