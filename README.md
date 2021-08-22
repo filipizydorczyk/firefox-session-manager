@@ -8,7 +8,7 @@
 
 -   `figer list` - lists session that u can switch to (current session will be not listed)
 -   `figer add session1` - creates empty session that has name `session1`. `default` is not valid session name.
--   `figer switch session1` - switch current session to `session1`
+-   `figer switch session1` - switch current session to `session1`. If firefox is running it will kill it first, and afterwards run new firefox with new session.
 -   `figer rm session1` - removes session named `session1`. It wont be removed if it's current session in firefox or `default`.
 
 # 📲 Installation
@@ -23,7 +23,7 @@ No matter how u name it `figer` stores sessions in `~/.figer-sessions` (except c
 
 # 📝 To do
 
--   [ ] check if there is a way to restart firefox after changing session
+-   [x] check if there is a way to restart firefox after changing session
 -   [x] check if I can run firefox just with difrrent dir without actually moving `~/.mozilla` - not in the way I wanted
 -   [x] exclude nam `default` from valid session names (it is reserved for default firefox session that is initialized in first figer run)
 -   [x] add check in `switch` command if given session exists before moving sessions

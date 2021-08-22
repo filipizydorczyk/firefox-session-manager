@@ -34,13 +34,19 @@ add)
     ;;
 switch)
     CURRENT_SESSION=$(cat "$MOZILLA_DIRECTORY/$NAME_FILE")
+    FIREFOX_RUNNING=$(pgrep firefox)
     if [ ! -d "$STORAGE_DIRECTORY/$SESSION_NAME" ]; then
         echo "Given session could not be find!"
         exit
     fi
 
+    killall -q firefox
     mv "$MOZILLA_DIRECTORY" "$STORAGE_DIRECTORY/$CURRENT_SESSION"
     mv "$STORAGE_DIRECTORY/$SESSION_NAME" "$MOZILLA_DIRECTORY"
+    if [ $FIREFOX_RUNNING ]; then
+        firefox &
+        disown
+    fi
     ;;
 rm)
     SESSION_TO_REMOVE="$STORAGE_DIRECTORY/$SESSION_NAME"
