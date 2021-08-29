@@ -4,6 +4,15 @@
 
 ![](./assets/example.gif)
 
+When u create new session it's basically fresh firefox. U have:
+
+-   no extensions installed
+-   no cookies
+-   no history
+-   no bookmarks
+
+Once u will switch back to previous session u get back all these things back
+
 # ⌨️ Usage
 
 -   `figer list` - lists session that u can switch to (current session will be not listed)
